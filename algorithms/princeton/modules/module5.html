@@ -21,24 +21,37 @@
                 </p>
             </div>
 
-            <div id="typeOfData" style="margin-top:20px">
-                <h2 class="display-6 fw-bold">Type of Data </h2>
+            <div id="comparable" style="margin-top:20px">
+                <h2 class="display-6 fw-bold">Comparable interface</h2>
 
                 <p>
-                    Above code is effective for data type that implements <code>Comparable</code>. Many data types in
-                    Java like <code> Integer, Double, Float, Strings </code> implements Comparable so we have methods
-                    like <code>compareTo()</code>. The compareTo() method is a callback function which can sort any type
-                    of data regardless of its type. This method is present in every <code>Comparable class</code> type
-                    of data
-                    <pre>
-    v.compareTo(w)  // compares v and w and return Negative if v < w else positive and 0 if equals
-                                
-                        </pre>
+                    The <code>Comparable</code> Interface in Java is used to define a natural ordering of objects. By
+                    implementing
+                    this interface, a class specifies how its instances should be compared with each other. Types of
+                    comparable are Strings, Integer, Double,Float.
                 </p>
+                <p>
+                    The <code>compareTo()</code> is a method present in <code>Comparable</code> Interface. It is a
+                    callback function
+                    which can sort any type
+                    of data regardless of its type. This method is present in every <code>Comparable class</code> type
+                    of data.
+                </p>
+
+                <pre style="color:pink">
+v.compareTo(w)  // compares v and w and return Negative if v < w else positive and 0 if equals                              
+                </pre>
+
             </div>
 
-            <div id="api">
-                <h4 class="fw-bold display-5 ">APIs</h4>
+            <div id="api-comparable">
+                <h4 class="fw-bold display-5 ">APIs of Comparable</h4>
+                <span class="fw-bold mt-5">int p.compareTo(int q)</span>
+                <p>Compares p and q and returns -1 if p &lt; q, 0 if p = q and 1 if p &gt; q</p>
+            </div>
+
+            <div id="methods">
+                <h4 class="fw-bold display-5 ">Methods used for Sorting:</h4>
                 <span class="fw-bold mt-5">sort(Comparable[] a)</span>
                 <p>
                     Sort the given array into increasing order of the sequence.
@@ -50,12 +63,10 @@
                 <span class="fw-bold mt-5">exch(Comparable[] arr, int i, int min)</span>
                 <p>Swaps the values of indices i and min in array <code>arr</code> .</p>
 
-                <span class="fw-bold mt-5">int p.compareTo(int q)</span>
-                <p>Compares p and q and returns -1 if p &lt; q, 0 if p = q and 1 if p &gt; q</p>
-
                 <span class="fw-bold mt-5">count()</span>`
                 <p>Returns number of Components in the Network.</p>
             </div>
+
 
             <div id="selection-sort">
                 <h4 class="fw-bold display-5 mt-5">Selection Sort</h4>
