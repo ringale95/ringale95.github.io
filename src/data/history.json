@@ -1,0 +1,19 @@
+[
+    {
+      "role": "Salesforce/Software Developer",
+      "organisation": "Huron",
+      "startDate": "Oct, 2021",
+      "endDate": "August, 2023",
+      "experiences": ["HTML, CSS, JavaScript", "Followed MVC design pattern"],
+      "imageSrc": "history/huron.svg"
+    },
+    {
+      "role": "Software Engineer",
+      "organisation": "LTIMindtree",
+      "startDate": "July, 2018",
+      "endDate": "Sept, 2021",
+      "experiences": ["ReactJS, Redux, SpringBoot & Hibernate", "Developed a custom analytics platform"],
+      "imageSrc": "history/LTIMindtree_Logo.svg"
+    }
+   
+  ]
