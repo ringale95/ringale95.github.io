@@ -32,7 +32,7 @@
 }
 
 .navbar-action {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .logo {
@@ -76,6 +76,10 @@
   transform: scale(0.8);
 }
 
+.fa-solid {
+    color: var(--white);
+}
+
 #theme-icon.fa-sun:hover {
   color: var(--yellow);
 }
@@ -92,13 +96,16 @@
   #sidebar-menu {
     display: inline-block;
   }
-  /* .navbar-link{
-    display: none;
-   }
-   #theme-icon{
-    display: none;
-   } */
+
+   .logo {
+    flex-grow:unset;
+  }
+
+  .navbar-content {
+    justify-content: space-between;
+  }
+
   .navbar-links {
-    flex-direction: column;
+    display: none;
   }
 }
