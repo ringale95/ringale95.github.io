@@ -12,11 +12,13 @@ document.getElementById("theme-switcher").addEventListener("click", () => {
       root.style.setProperty("--primary-color", "#003366");
       root.style.setProperty("--text-color", "#000000");
       root.style.setProperty("--title-color", "#003366");
+      root.style.setProperty("--hero-image-filter", "none");
     } else {
       root.style.setProperty("--bg-color", "#000e1aff");
       root.style.setProperty("--primary-color", "#000e1aff");
       root.style.setProperty("--text-color", "#FFFFFF");
       root.style.setProperty("--title-color", "#FFFFFF");
+      root.style.setProperty("--hero-image-filter", "grayscale(100%)");
     }
   }, 200);
 });
