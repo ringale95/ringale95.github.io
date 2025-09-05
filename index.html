@@ -4,45 +4,494 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raveena Ingale</title>
-    <link rel="stylesheet" href="/css/index.css" />
+    
+    <!-- Google Fonts - Simplified -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Habibi&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sora:wght@100..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Habibi&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sora:wght@100..800&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/9d7e98bacc.js"
       crossorigin="anonymous"
     ></script>
+    
+    <style>
+      :root {
+        /* Colors */
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --border: #e2e8f0;
+        
+        /* Dark mode */
+        --dark-bg-primary: #0f172a;
+        --dark-bg-secondary: #1e293b;
+        --dark-text-primary: #f1f5f9;
+        --dark-text-secondary: #94a3b8;
+        --dark-border: #334155;
+        
+        /* Spacing */
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+        
+        /* Typography */
+        --font-primary: 'Inter', system-ui, sans-serif;
+        --font-heading: 'Sora', system-ui, sans-serif;
+      }
+      
+      /* Dark mode variables */
+      [data-theme="dark"] {
+        --bg-primary: var(--dark-bg-primary);
+        --bg-secondary: var(--dark-bg-secondary);
+        --text-primary: var(--dark-text-primary);
+        --text-secondary: var(--dark-text-secondary);
+        --border: var(--dark-border);
+      }
+      
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+      
+      /* Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      
+      [data-theme="dark"] header {
+        background-color: rgba(15, 23, 42, 0.9);
+      }
+      
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-sm) 0;
+        height: 64px;
+      }
+      
+      .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xl);
+      }
+      
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+      
+      .logo:hover {
+        opacity: 0.8;
+      }
+      
+      .navbar-links {
+        display: flex;
+        gap: var(--spacing-lg);
+      }
+      
+      .navbar-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+        position: relative;
+      }
+      
+      .navbar-link:hover {
+        color: var(--primary);
+      }
+      
+      .navbar-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.2s ease;
+      }
+      
+      .navbar-link:hover::after {
+        width: 100%;
+      }
+      
+      .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+      
+      .theme-toggle,
+      .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: var(--spacing-xs);
+        border-radius: 8px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+      }
+      
+      .theme-toggle:hover,
+      .menu-toggle:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+      
+      .menu-toggle {
+        display: none;
+      }
+      
+      /* Hero Section - Refactored */
+      .hero-section {
+        margin-top: 64px; /* Account for fixed navbar */
+        min-height: calc(100vh - 64px);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+        align-items: center;
+        padding: var(--spacing-2xl) 0;
+      }
+      
+      .hero-content {
+        z-index: 2;
+      }
+      
+      .hero-subtitle {
+        color: var(--primary);
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-heading);
+      }
+      
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-md);
+        font-family: var(--font-heading);
+      }
+      
+      .hero-description {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.6;
+      }
+      
+      .hero-image-container {
+        position: relative;
+        height: 600px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+      
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center right; /* This shifts the focal point to the right */
+      }
+      
+      /* If you want to use a background image instead */
+      .hero-image-bg {
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/hero-image.jpg');
+        background-size: cover;
+        background-position: 70% center; /* Shifted to show right side of image */
+        background-repeat: no-repeat;
+      }
+      
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+      }
+      
+      .btn {
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        border: 2px solid transparent;
+      }
+      
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+      
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+      }
+      
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-primary);
+        border-color: var(--border);
+      }
+      
+      .btn-secondary:hover {
+        background-color: var(--bg-secondary);
+        border-color: var(--text-secondary);
+      }
+      
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+        }
+        
+        .menu-toggle {
+          display: flex;
+        }
+        
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-xl);
+        }
+        
+        .hero-image-container {
+          height: 400px;
+        }
+        
+        .hero-title {
+          font-size: clamp(2rem, 8vw, 3rem);
+        }
+        
+        .hero-description {
+          font-size: 1.125rem;
+        }
+      }
+      
+      /* Mobile Menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        padding: var(--spacing-md);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mobile-menu.active {
+        display: block;
+      }
+      
+      .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+      
+      .mobile-menu-links .navbar-link {
+        padding: var(--spacing-sm);
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+      }
+      
+      .mobile-menu-links .navbar-link:hover {
+        background-color: var(--bg-secondary);
+      }
+    </style>
   </head>
+  
   <body>
+    <!-- Navigation -->
     <header>
-      <nav class="navbar-container">
-        <div class="navbar-content">
-          <div id="sidebar-menu">
-            <span class="fa-solid fa-bars fa-lg"></span>
+      <div class="container">
+        <nav class="navbar">
+          <div class="navbar-left">
+            <a href="/" class="logo">RI</a>
+            <div class="navbar-links">
+              <a href="/" class="navbar-link">Home</a>
+              <a href="#skills" class="navbar-link">Skills</a>
+              <a href="#experience" class="navbar-link">Experience</a>
+              <a href="#projects" class="navbar-link">Projects</a>
+              <a href="#contact" class="navbar-link">Contact</a>
+            </div>
           </div>
-          <a href="/" class="logo"> <span class="logo-text">RI</span></a>
-          <section class="navbar-links">
-            <a href="/" class="navbar-link">Home</a>
-            <a href="#skills" class="navbar-link">Skills</a>
-            <a href="#experience" class="navbar-link">Experience</a>
-            <a href="#projects" class="navbar-link">Projects</a>
-            <a href="#contact" class="navbar-link">Contact Me</a>
-          </section>
-          <div id="theme-switcher">
-            <span id="theme-icon" class="fa-solid fa-sun fa-lg"></span>
+          
+          <div class="navbar-right">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+              <span class="fa-solid fa-sun fa-lg"></span>
+            </button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+              <span class="fa-solid fa-bars fa-lg"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-links">
+          <a href="/" class="navbar-link">Home</a>
+          <a href="#skills" class="navbar-link">Skills</a>
+          <a href="#experience" class="navbar-link">Experience</a>
+          <a href="#projects" class="navbar-link">Projects</a>
+          <a href="#contact" class="navbar-link">Contact</a>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-content">
+            <p class="hero-subtitle">Welcome to my portfolio</p>
+            <h1 class="hero-title">Hey there!<br/>I'm Raveena Ingale</h1>
+            <p class="hero-description">
+              A passionate developer creating innovative digital experiences
+              with modern technologies and creative solutions.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">
+                View My Work
+                <span class="fa-solid fa-arrow-right"></span>
+              </a>
+              <a href="#contact" class="btn btn-secondary">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-image-container">
+            <!-- Option 1: Using img tag (recommended if you have an actual image) -->
+            <!-- <img src="/assets/hero-image.jpg" alt="Raveena Ingale" class="hero-image" /> -->
+            
+            <!-- Option 2: Using background image div -->
+            <div class="hero-image-bg"></div>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </section>
+    
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = themeToggle.querySelector('span');
+      const body = document.body;
+      
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      body.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+      
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+      
+      function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+        } else {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+        }
+      }
+      
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = menuToggle.querySelector('span');
+      
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        
+        if (mobileMenu.classList.contains('active')) {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+        } else {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.mobile-menu-links .navbar-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        });
+      });
+    </script>
   </body>
-  <script type="module" src="/src/index.js"></script>
 </html>
