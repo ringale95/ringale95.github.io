@@ -1,24 +1,37 @@
 @import "./navbar.css";
 
-:root{
-    --font-montserrat: "Montserrat", sans-serif;
-    --font-sora: "sora", serif;
-    --primary-color: #003366;
-    --white: #FFFFFF;
-    --yellow: #FFD43B;
-    --blue: rgb(116 192 252);
-    --bg-color: var(--white);
+:root {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-sora: "sora", serif;
+  --primary-color: #003366;
+  --white: #ffffff;
+  --black: #000000;
+  --yellow: #ffd43b;
+  --blue: rgb(116 192 252);
+  --bg-color: var(--white);
+  --text-color: var(--black);
+  --title-color: var(--primary-color);
 }
 
 body {
-    font-family: var(--font-sora);
-    background-color: var(--bg-color);
-    box-sizing: border-box; /* width and height of an element includes its padding and border */
-    font-size: 1rem;
-    line-height: 1.5;  /* for 1rem 150% line height is best */
-    margin: 0;
+  font-family: var(--font-sora);
+  background-color: var(--bg-color);
+  box-sizing: border-box; /* width and height of an element includes its padding and border */
+  font-size: 1rem;
+  line-height: 1.5; /* for 1rem 150% line height is best */
+  margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: var(--font-montserrat);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-montserrat);
+  color: var(--title-color);
+}
+
+p {
+  color: var(--text-color);
 }
