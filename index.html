@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raveena Ingale</title>
-    <link rel="stylesheet" href="/css/index.css"/>
+
     <!-- Google Fonts - Simplified -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +18,522 @@
       src="https://kit.fontawesome.com/9d7e98bacc.js"
       crossorigin="anonymous"
     ></script>
+
+    <style>
+      /* Your existing CSS */
+      :root {
+        /* Colors */
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --border: #e2e8f0;
+
+        /* Dark mode */
+        --dark-bg-primary: #0f172a;
+        --dark-bg-secondary: #1e293b;
+        --dark-text-primary: #f1f5f9;
+        --dark-text-secondary: #94a3b8;
+        --dark-border: #334155;
+
+        /* Spacing */
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+
+        /* Typography */
+        --font-primary: "Inter", system-ui, sans-serif;
+        --font-heading: "Sora", system-ui, sans-serif;
+      }
+
+      /* Dark mode variables */
+      [data-theme="dark"] {
+        --bg-primary: var(--dark-bg-primary);
+        --bg-secondary: var(--dark-bg-secondary);
+        --text-primary: var(--dark-text-primary);
+        --text-secondary: var(--dark-text-secondary);
+        --border: var(--dark-border);
+      }
+
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      /* Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      [data-theme="dark"] header {
+        background-color: rgba(15, 23, 42, 0.9);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-sm) 0;
+        height: 64px;
+      }
+
+      .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xl);
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .logo:hover {
+        opacity: 0.8;
+      }
+
+      .navbar-links {
+        display: flex;
+        gap: var(--spacing-lg);
+      }
+
+      .navbar-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+        position: relative;
+      }
+
+      .navbar-link:hover {
+        color: var(--primary);
+      }
+
+      .navbar-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.2s ease;
+      }
+
+      .navbar-link:hover::after {
+        width: 100%;
+      }
+
+      .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+      }
+
+      .theme-toggle,
+      .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: var(--spacing-xs);
+        border-radius: 8px;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+      }
+
+      .theme-toggle:hover,
+      .menu-toggle:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        margin-top: 64px;
+        min-height: calc(100vh - 64px);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-2xl);
+        align-items: center;
+        padding: var(--spacing-2xl) 0;
+      }
+
+      .hero-content {
+        z-index: 2;
+      }
+
+      .hero-subtitle {
+        color: var(--primary);
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-heading);
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: var(--spacing-md);
+        font-family: var(--font-heading);
+      }
+
+      .hero-description {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.6;
+      }
+
+      .hero-image-container {
+        position: relative;
+        height: 600px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero-image-bg {
+        width: 100%;
+        height: 100%;
+        background-image: url("/assets/hero-image.jpg");
+        background-size: cover;
+        background-position: 70% center;
+        background-repeat: no-repeat;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-primary);
+        border-color: var(--border);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--bg-secondary);
+        border-color: var(--text-secondary);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border);
+        padding: var(--spacing-md);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+
+      .mobile-menu-links .navbar-link {
+        padding: var(--spacing-sm);
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+      }
+
+      .mobile-menu-links .navbar-link:hover {
+        background-color: var(--bg-secondary);
+      }
+
+      /* Infinite Scroll Skills Section */
+      .skills-section {
+        padding: var(--spacing-2xl) 0;
+        background-color: var(--bg-secondary);
+        overflow: hidden;
+      }
+
+      .skills-section h2 {
+        text-align: center;
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-xl);
+        color: var(--text-primary);
+      }
+
+      .scroll-wrapper {
+        position: relative;
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-md) 0;
+      }
+
+      .scroll-container {
+        display: flex;
+        margin: 0 auto;
+        gap: 3rem;
+        animation: scroll 30s linear infinite;
+        width: max-content;
+      }
+
+      .scroll-container:hover {
+        animation-play-state: paused;
+      }
+
+      .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background-color: var(--bg-primary);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+        min-width: 100px;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .skill-item img {
+        width: 3rem;
+        height: 3rem;
+        object-fit: contain;
+        filter: grayscale(0.2);
+        transition: filter 0.3s ease;
+      }
+
+      .skill-item:hover img {
+        filter: grayscale(0);
+      }
+
+      .skill-name {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        text-align: center;
+      }
+
+      /* Gradient overlays for smooth edges */
+      .scroll-wrapper::before,
+      .scroll-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .scroll-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, var(--bg-secondary), transparent);
+      }
+
+      .scroll-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, var(--bg-secondary), transparent);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Alternative scroll direction */
+      .scroll-reverse {
+        animation: scroll-reverse 30s linear infinite;
+      }
+
+      @keyframes scroll-reverse {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-xl);
+        }
+
+        .hero-image-container {
+          height: 400px;
+        }
+
+        .hero-title {
+          font-size: clamp(2rem, 8vw, 3rem);
+        }
+
+        .hero-description {
+          font-size: 1.125rem;
+        }
+
+        .skills-container {
+          margin: 0 var(--spacing-sm);
+          border-radius: 16px;
+        }
+
+        .skill-item {
+          padding: 0.5rem 1rem;
+        }
+
+        .skill-item img,
+        .skill-item svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        .skill-name {
+          font-size: 0.8rem;
+        }
+
+        .scroll-container {
+          gap: 1rem;
+        }
+
+        .scroll-track {
+          padding: 1rem 0;
+        }
+
+        .skills-stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+          padding: var(--spacing-lg);
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .scroll-track::before,
+        .scroll-track::after {
+          width: 60px;
+        }
+      }
+
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-container {
+          animation: none;
+        }
+
+        .skill-item:hover {
+          transform: none;
+        }
+
+        .skill-item:hover img {
+          transform: none;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -73,6 +589,7 @@
         <div class="hero-container">
           <div class="hero-content">
             <p class="hero-subtitle">Welcome to my portfolio</p>
+            <!--TODO - Implement typing animation effect on hero-title -->
             <h1 class="hero-title">Hey there!<br />I'm Raveena Ingale</h1>
             <p class="hero-description">
               A passionate developer creating innovative digital experiences
@@ -93,6 +610,193 @@
         </div>
       </div>
     </section>
+
+    <!-- Skills Section with Infinite Scroll -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2>Technologies & Skills</h2>
+      </div>
+      <div class="scroll-wrapper">
+        <div class="scroll-container" id="scroll-container">
+          <!-- First set of skills -->
+          <div class="skill-item">
+            <img src="./assets/logos/html.svg" alt="HTML" />
+            <span class="skill-name">HTML</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/css.svg" alt="CSS" />
+            <span class="skill-name">CSS</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/js.svg" alt="JavaScript" />
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/typescript.svg" alt="TypeScript" />
+            <span class="skill-name">TypeScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/java.svg" alt="Java" />
+            <span class="skill-name">Java</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/react.svg" alt="React" />
+            <span class="skill-name">React</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/vue.svg" alt="Vue" />
+            <span class="skill-name">Vue</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/nuxt.svg" alt="Nuxt" />
+            <span class="skill-name">Nuxt</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/springboot.svg" alt="Spring Boot" />
+            <span class="skill-name">Spring Boot</span>
+          </div>
+          <!-- Duplicate set for seamless loop -->
+          <div class="skill-item">
+            <img src="./assets/logos/html.svg" alt="HTML" />
+            <span class="skill-name">HTML</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/css.svg" alt="CSS" />
+            <span class="skill-name">CSS</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/js.svg" alt="JavaScript" />
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/typescript.svg" alt="TypeScript" />
+            <span class="skill-name">TypeScript</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/java.svg" alt="Java" />
+            <span class="skill-name">Java</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/react.svg" alt="React" />
+            <span class="skill-name">React</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/vue.svg" alt="Vue" />
+            <span class="skill-name">Vue</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/nuxt.svg" alt="Nuxt" />
+            <span class="skill-name">Nuxt</span>
+          </div>
+          <div class="skill-item">
+            <img src="./assets/logos/springboot.svg" alt="Spring Boot" />
+            <span class="skill-name">Spring Boot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience-container">
+    
+    </section>
+
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("span");
+      const body = document.body;
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem("theme") || "light";
+      body.setAttribute("data-theme", savedTheme);
+      updateThemeIcon(savedTheme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        if (theme === "dark") {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+        } else {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        }
+      }
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = menuToggle.querySelector("span");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+
+        if (mobileMenu.classList.contains("active")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll(
+        ".mobile-menu-links .navbar-link",
+      );
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        });
+      });
+
+      // Optional: Add more skills dynamically
+      const additionalSkills = [
+        // You can add more skills here if needed
+        // { name: 'Node.js', logo: './assets/logos/nodejs.svg' },
+        // { name: 'MongoDB', logo: './assets/logos/mongodb.svg' },
+      ];
+
+      // Optional: Adjust scroll speed based on viewport width
+      function adjustScrollSpeed() {
+        const scrollContainer = document.getElementById("scroll-container");
+        const viewportWidth = window.innerWidth;
+
+        if (viewportWidth < 768) {
+          scrollContainer.style.animationDuration = "20s";
+        } else if (viewportWidth < 1024) {
+          scrollContainer.style.animationDuration = "25s";
+        } else {
+          scrollContainer.style.animationDuration = "30s";
+        }
+      }
+
+      // Call on load and resize
+      window.addEventListener("load", adjustScrollSpeed);
+      window.addEventListener("resize", adjustScrollSpeed);
+
+      // Optional: Pause on hover for better UX
+      const scrollWrapper = document.querySelector(".scroll-wrapper");
+      const scrollContainer = document.querySelector(".scroll-container");
+
+      // Add keyboard support for pausing animation
+      scrollWrapper.addEventListener("focus", () => {
+        scrollContainer.style.animationPlayState = "paused";
+      });
+
+      scrollWrapper.addEventListener("blur", () => {
+        scrollContainer.style.animationPlayState = "running";
+      });
+    </script>
+    <script type="module" src="/src/index.js"></script>
   </body>
-  <script type="module" src="/src/index.js"></script>
 </html>

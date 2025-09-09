@@ -1,0 +1,22 @@
+{
+    "experience": [
+        {
+            "date": "Aug 2024 - Present",
+            "company": "Burnes Center for Social Change",
+            "role" : "Software Developer",
+            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
+        },
+         {
+            "date": "Aug 2025 - Present",
+            "company": "Burnes Center for Social Change",
+            "role" : "Software Developer",
+            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
+        },
+         {
+            "date": "Aug 2024 - Present",
+            "company": "Burnes Center for Social Change",
+            "role" : "Software Developer",
+            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
+        }
+    ]
+}
