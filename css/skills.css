@@ -1,0 +1,11 @@
+.scroll-container{
+    display: flex;
+    gap:1rem;
+    justify-content: space-evenly;
+}
+
+.scroll-container img{
+    width: 3rem;
+    height: auto;
+
+}

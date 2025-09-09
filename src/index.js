@@ -55,3 +55,30 @@ mobileLinks.forEach((link) => {
     menuIcon.classList.add("fa-bars");
   });
 });
+
+
+//fetch json and add in experience section
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/data.json")
+    .then((response) => response.json())
+    .then((json) => {
+      const container = document.getElementById("experience-container"); 
+      container.innerHTML = ""; 
+
+      json.experience.forEach((exp) => {
+        const div = document.createElement("div");
+        div.classList.add("experience-item");
+
+        div.innerHTML = `
+          <h3>${exp.company} | ${exp.role}</h3>
+          <p><strong>${exp.date}</strong></p>
+          <p>${exp.description}</p>
+        `;
+
+        container.appendChild(div);
+      });
+    });
+});
+
+
+
