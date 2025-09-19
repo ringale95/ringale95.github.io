@@ -1,22 +1,22 @@
 {
-    "experience": [
-        {
-            "date": "Aug 2024 - Present",
-            "company": "Burnes Center for Social Change",
-            "role" : "Software Developer",
-            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
-        },
-         {
-            "date": "Aug 2025 - Present",
-            "company": "Burnes Center for Social Change",
-            "role" : "Software Developer",
-            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
-        },
-         {
-            "date": "Aug 2024 - Present",
-            "company": "Burnes Center for Social Change",
-            "role" : "Software Developer",
-            "description" :"Architected and scaled enterprise-grade Nuxt 3/Vue 3 learning platforms powered by Directus CMS and Google Cloud, delivering 200+ courses to 100,000+ learners across 150+ government agencies with SSR, modular architecture, and cloud-hosted APIs </br> Engineered cutting-edge SSG and CI/CD workflows using Netlify Functions, Directus webhooks, lazy hydration, CDN caching, and automated pipelines (Husky, Prettier, ESLint, Vitest, Storybook, Chromatic), reducing rebuilds by 80% and achieving zero critical production errors."
-        }
-    ]
+  "experience": [
+    {
+      "company": "Burnes Center for Social Change",
+      "role": "Web Developer",
+      "date": "Aug 2024 – Present",
+      "description": "Built a distributed learning platform serving 1M+ users using Nuxt 3, Vue 3, React, and optimized SSG pipelines with CDN caching and automated testing."
+    },
+    {
+      "company": "Huron Eurasia Pvt. Ltd",
+      "role": "Software Developer",
+      "date": "Oct 2021 – Aug 2023",
+      "description": "Migrated 50+ Aura components to Lightning Web Components in Salesforce Health Cloud and implemented event-driven Pub/Sub communication."
+    },
+    {
+      "company": "LTIMindtree",
+      "role": "Software Engineer",
+      "date": "Jul 2018 – May 2021",
+      "description": "Developed microservices-based reporting systems using Spring Boot and automated testing pipelines with Selenium and Jenkins CI/CD."
+    }
+  ]
 }
